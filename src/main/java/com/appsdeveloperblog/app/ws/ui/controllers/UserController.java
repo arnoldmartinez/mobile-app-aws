@@ -1,5 +1,6 @@
 package com.appsdeveloperblog.app.ws.ui.controllers;
 
+import com.appsdeveloperblog.app.ws.exceptions.UserServiceException;
 import com.appsdeveloperblog.app.ws.ui.model.request.UpdateDetailsRequestModel;
 import com.appsdeveloperblog.app.ws.ui.model.request.UserDetailsRequestModel;
 import com.appsdeveloperblog.app.ws.ui.model.response.UserRest;
@@ -28,6 +29,8 @@ public class UserController {
 
     @GetMapping(path = "/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<UserRest> getUser(@PathVariable String userId) {
+        if (true) throw new UserServiceException("A user service exception is thrown");
+
         UserRest returnValue = new UserRest();
 
         returnValue.setEmail("test@test.com");
